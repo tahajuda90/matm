@@ -123,6 +123,11 @@ class RestApi extends CI_Controller {
     }
     
     public function input_thpn(){
-        
+            
+        $data = array(
+		'id_obat' => $this->input->post('id_obat',TRUE),
+		'id_proses' => $this->input->post('id_proses',TRUE),
+	    );
+        $this->Dt_thpan_model->insert($data);
     }
 }
