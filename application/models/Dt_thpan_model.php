@@ -73,7 +73,7 @@ class Dt_thpan_model extends CI_Model
     // insert data
     function insert($data)
     {
-        $this->db->insert($this->table, $data);
+        return $this->db->insert($this->table, $data);
     }
 
     // update data

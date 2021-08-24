@@ -125,9 +125,15 @@ class RestApi extends CI_Controller {
     public function input_thpn(){
             
         $data = array(
-		'id_obat' => $this->input->post('id_obat',TRUE),
-		'id_proses' => $this->input->post('id_proses',TRUE),
+            'id_obat' => $this->input->post('id_obat',TRUE),
+            'id_proses' => $this->input->post('id_proses',TRUE),
+            'hari' => fdatetimetodb($this->input->post('hari',TRUE))
 	    );
-        $this->Dt_thpan_model->insert($data);
+        if($this->dt_thpan_model->insert($data)){
+            //echo json_encode(array("message"=>"Berhasil"));
+            echo json_encode($data);
+        }else{
+            echo json_encode(array("message"=>"Gagal"));
+        }
     }
 }
